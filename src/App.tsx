@@ -27,18 +27,4 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
-            <About />
-            <Skills />
-            <Projects />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
-      </div>
-    </ThemeProvider>
-  );
-}
-
 export default App;
