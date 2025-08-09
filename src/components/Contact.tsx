@@ -1,23 +1,56 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Coffee, MessageCircle, Heart } from 'lucide-react';
+import React from 'react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  return (
+    <section className="space-y-4">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">Contact</h2>
+      <div className="flex flex-wrap gap-4">
+        <a
+          href="mailto:your.email@example.com"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+        >
+          <Mail size={16} />
+          <span>your.email@example.com</span>
+        </a>
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+        >
+          <Github size={16} />
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+        >
+          <Linkedin size={16} />
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+  );
+};
+        >
+          <Github size={16} />
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="default-transition inline-flex items-center gap-2 rounded-md border-2 border-white bg-white px-3 py-1 text-sm font-semibold text-gray-400 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-500 dark:border-gray-900 dark:bg-gray-950 dark:hover:border-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-300"
+        >
+          <Linkedin size={16} />
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+  );
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);

@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Code, Home, User, Briefcase, Mail, Zap } from 'lucide-react';
+import React from 'react';
 import ThemeToggle from './ThemeToggle';
 
 const Navigation: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+  return (
+    <nav className="flex items-center justify-end">
+      <ThemeToggle />
+    </nav>
+  );
+};
         }
         return false;
       });

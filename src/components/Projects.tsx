@@ -1,23 +1,118 @@
-import React, { useState } from 'react';
-import { Github, ExternalLink, Code, Star, Eye, GitFork, Flame, Zap, Cpu, Calendar } from 'lucide-react';
+import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
+
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  githubUrl: string;
+  liveUrl?: string;
+}
 
 const Projects: React.FC = () => {
-  const projects = [
+  const projects: Project[] = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, product management, and order tracking.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "Express.js", "Tailwind CSS"],
-      category: "Full Stack",
-      status: "Completed",
-      date: "Jan 2024",
-      featured: true,
-      githubUrl: "#",
-      liveUrl: "#",
-      stats: { users: "1.2k", uptime: "99.9%" }
-    },
-    {
-      title: "Task Management App",
+      title: "Project Name",
+      description: "A brief description of your project. What it does and its key features.",
+      tech: ["React", "TypeScript", "Tailwind"],
+      githubUrl: "https://github.com/yourusername/project",
+      liveUrl: "https://project-demo.com"
+    }
+  ];
+
+  return (
+    <section className="space-y-4">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">Projects</h2>
+      <div className="grid gap-6 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <div 
+            key={index}
+            className="p-6 rounded-lg border-2 border-white bg-white dark:border-gray-900 dark:bg-gray-950"
+          >
+            <h3 className="text-lg font-semibold text-black dark:text-white">{project.title}</h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">{project.description}</p>
+            
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.tech.map((tech, techIndex) => (
+                <span 
+                  key={techIndex}
+                  className="px-2 py-1 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-900 rounded"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-4 flex gap-3">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                <Github size={16} />
+                <span>Code</span>
+              </a>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <ExternalLink size={16} />
+                  <span>Demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+      description: "A brief description of your second project. What it does, what technologies you used, and what you learned.",
+      githubUrl: "https://github.com/yourusername/project-two",
+      liveUrl: "https://project-two.com"
+    }
+  ];
+
+  return (
+    <section className="space-y-4">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">Projects</h2>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="p-4 rounded-md border-2 border-white bg-white dark:border-gray-900 dark:bg-gray-950"
+          >
+            <h3 className="text-lg font-semibold text-black dark:text-white">{project.title}</h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">{project.description}</p>
+            <div className="mt-4 flex gap-2">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="default-transition inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+              >
+                <Github size={16} />
+                <span>Code</span>
+              </a>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="default-transition inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+              >
+                <ExternalLink size={16} />
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
       description: "A productivity application built with React and TypeScript. Features real-time collaboration, drag-and-drop functionality, and advanced filtering options.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center",
       tech: ["React", "TypeScript", "Socket.io", "PostgreSQL", "Express.js"],

@@ -1,23 +1,21 @@
 import React from 'react';
-import { User, MapPin, Calendar, Mail, Github, Linkedin, Coffee } from 'lucide-react';
 
 const About: React.FC = () => {
-  const personalInfo = [
-    { label: "Age", value: "18", icon: "🎂" },
-    { label: "Location", value: "Available Remotely", icon: "🌍" },
-    { label: "Languages", value: "Hindi, English", icon: "🗣️" },
-    { label: "Interests", value: "Programming, Math, Philosophy", icon: "💡" },
-  ];
-
-  const technologies = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Python", "Express.js",
-    "MongoDB", "PostgreSQL", "Docker", "AWS", "Git", "Tailwind CSS",
-    "Next.js", "Vite", "HTML/CSS", "REST APIs", "GraphQL", "Redis"
-  ];
-
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="space-y-4">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">About</h2>
+      <p className="text-gray-600 dark:text-gray-400">
+        Write your bio here. A brief introduction about yourself, your background,
+        and what you're passionate about.
+      </p>
+      <div className="space-y-2">
+        <h3 className="text-xl font-semibold text-black dark:text-white">Skills</h3>
+        <p className="text-gray-600 dark:text-gray-400">
+          List your key skills here: React, TypeScript, Node.js, etc.
+        </p>
+      </div>
+    </section>
+  );
         <div className="grid lg:grid-cols-3 gap-12">
           {/* About Section - inspired by the comprehensive dark portfolio */}
           <div className="lg:col-span-2 space-y-8">

@@ -1,23 +1,11 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 dark:bg-dark-400 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">
-              &lt;Satyanchal/&gt;
-            </h3>
-            <p className="text-gray-400 leading-relaxed">
-              18y/o full stack developer passionate about building intuitive, 
-              high-polish digital experiences that inspire change.
-            </p>
-          </div>
-
-          {/* Quick Links */}
+    <footer className="mt-20 text-center text-sm text-gray-500">
+      <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+    </footer>
+  );
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
