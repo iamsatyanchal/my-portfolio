@@ -1,5 +1,5 @@
-import React from 'react';
-import { ExternalLink, Github, Calendar, Tag, Zap, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, ExternalLink, Code, Star, Eye, GitFork, Flame, Zap, Cpu } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
