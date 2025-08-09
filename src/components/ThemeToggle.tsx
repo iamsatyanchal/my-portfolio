@@ -17,14 +17,7 @@ const ThemeToggle: React.FC = () => {
         <Moon size={20} />
       )}
     </button>
-      
-      {/* Glow effect */}
-      <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-        isDark 
-          ? 'bg-yellow-400/20 shadow-lg shadow-yellow-400/20' 
-          : 'bg-blue-400/20 shadow-lg shadow-blue-400/20'
-      }`}></div>
-    </button>
+    
   );
 };
 
