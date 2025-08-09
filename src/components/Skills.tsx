@@ -40,24 +40,7 @@ const Skills: React.FC = () => {
         ))}
       </div>
     </section>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="p-4 rounded-md border-2 border-white bg-white dark:border-gray-900 dark:bg-gray-950"
-          >
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold text-black dark:text-white">
-                {skill.name}
-              </h3>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                {skill.level}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
   );
-}
+};
+
 export default Skills;
