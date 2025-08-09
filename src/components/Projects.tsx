@@ -1,276 +1,232 @@
-import React, { useState } from 'react';
-import { Github, ExternalLink, Code, Star, Eye, GitFork, Flame, Zap, Cpu } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, Github, Calendar, Tag, Zap, Star } from 'lucide-react';
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-
   const projects = [
     {
-      id: 1,
-      title: "voidexity",
-      description: "A fresh UI experiment using Mistral LLM. An innovative approach to creating intuitive user interfaces with AI assistance.",
-      tech: ["React", "TypeScript", "Mistral LLM", "Tailwind CSS"],
-      github: "https://github.com",
-      live: "https://voidexity.demo.com",
-      category: "UI Experiment",
-      icon: Flame,
-      color: "from-orange-400 to-red-500",
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, product management, and order tracking.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
+      tech: ["React", "Node.js", "MongoDB", "Stripe", "Express.js", "Tailwind CSS"],
+      category: "Full Stack",
+      status: "Completed",
+      date: "Jan 2024",
       featured: true,
-      stats: { stars: 42, forks: 12, views: 1200 }
+      githubUrl: "#",
+      liveUrl: "#",
+      stats: { users: "1.2k", uptime: "99.9%" }
     },
     {
-      id: 2,
-      title: "soft.quotes",
-      description: "A collection of inspiring quotes to motivate and uplift your day. Clean, minimal design with beautiful typography.",
-      tech: ["Next.js", "MongoDB", "Node.js", "CSS"],
-      github: "https://github.com",
-      live: "https://softquotes.demo.com",
-      category: "Web App",
-      icon: Star,
-      color: "from-blue-400 to-cyan-500",
+      title: "Task Management App",
+      description: "A productivity application built with React and TypeScript. Features real-time collaboration, drag-and-drop functionality, and advanced filtering options.",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center",
+      tech: ["React", "TypeScript", "Socket.io", "PostgreSQL", "Express.js"],
+      category: "Frontend",
+      status: "In Progress",
+      date: "Mar 2024",
       featured: false,
-      stats: { stars: 28, forks: 8, views: 850 }
+      githubUrl: "#",
+      liveUrl: "#",
+      stats: { tasks: "5k+", teams: "150+" }
     },
     {
-      id: 3,
-      title: "think.",
-      description: "A fully AI powered Human X AI social media platform that continuously curates the latest news. Demo account - email: testinguser@x.com | password: 12345",
-      tech: ["React", "AI Integration", "Node.js", "PostgreSQL"],
-      github: "https://github.com",
-      live: "https://think.demo.com",
-      category: "Social Platform",
-      icon: Cpu,
-      color: "from-purple-400 to-pink-500",
+      title: "AI Chat Bot",
+      description: "An intelligent chatbot using OpenAI GPT API with context awareness, conversation memory, and customizable responses for various use cases.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center",
+      tech: ["Python", "OpenAI API", "FastAPI", "React", "Redis"],
+      category: "AI/ML",
+      status: "Completed",
+      date: "Feb 2024",
       featured: true,
-      stats: { stars: 67, forks: 23, views: 2100 }
+      githubUrl: "#",
+      liveUrl: "#",
+      stats: { queries: "10k+", accuracy: "95%" }
     },
     {
-      id: 4,
-      title: "apipoint",
-      description: "A hub of diverse APIs developed for modern applications. Comprehensive collection of endpoints for various use cases.",
-      tech: ["Express.js", "Node.js", "MongoDB", "REST API"],
-      github: "https://github.com",
-      live: "https://apipoint.demo.com",
-      category: "API Development",
-      icon: Zap,
-      color: "from-green-400 to-emerald-500",
+      title: "Weather Dashboard",
+      description: "A responsive weather application with location-based forecasts, interactive maps, and historical weather data visualization.",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&crop=center",
+      tech: ["Next.js", "Chart.js", "OpenWeather API", "Mapbox"],
+      category: "Frontend",
+      status: "Completed",
+      date: "Dec 2023",
       featured: false,
-      stats: { stars: 35, forks: 15, views: 980 }
+      githubUrl: "#",
+      liveUrl: "#",
+      stats: { cities: "500+", requests: "daily 2k+" }
     },
     {
-      id: 5,
-      title: "gitprofile",
-      description: "A sleek and improved way to view GitHub profiles. Enhanced visualization and analytics for better profile insights.",
-      tech: ["React", "GitHub API", "Chart.js", "Tailwind CSS"],
-      github: "https://github.com",
-      live: "https://gitprofile.demo.com",
-      category: "Developer Tool",
-      icon: Code,
-      color: "from-indigo-400 to-purple-500",
+      title: "Portfolio Website",
+      description: "A modern, responsive portfolio website built with React and Vite. Features dark/light mode, smooth animations, and optimized performance.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center",
+      tech: ["React", "Vite", "Tailwind CSS", "TypeScript"],
+      category: "Frontend",
+      status: "Live",
+      date: "Current",
       featured: false,
-      stats: { stars: 19, forks: 6, views: 630 }
+      githubUrl: "#",
+      liveUrl: "#",
+      stats: { visitors: "monthly 500+", performance: "98/100" }
     }
   ];
 
-  const categories = ['All', 'UI Experiment', 'Web App', 'Social Platform', 'API Development', 'Developer Tool'];
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const categories = ["All", "Full Stack", "Frontend", "AI/ML"];
+  const [activeCategory, setActiveCategory] = React.useState("All");
+
+  const filteredProjects = projects.filter(project => 
+    activeCategory === "All" || project.category === activeCategory
+  );
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Completed": return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
+      case "In Progress": return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
+      case "Live": return "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400";
+      default: return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+    }
+  };
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6">
-            <Code className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className="text-sm font-medium text-blue-600 dark:text-blue-400">My Projects</span>
-          </div>
-          
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-gray-900 dark:text-white">Featured </span>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Work</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <span className="mr-2">🚀</span>
+            Featured Projects
           </h2>
-          
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            A mix of <span className="font-semibold text-blue-600 dark:text-blue-400">personal thoughts</span>, 
-            <span className="font-semibold text-purple-600 dark:text-purple-400"> technical experiments</span> and 
-            <span className="font-semibold text-pink-600 dark:text-pink-400"> projects</span> that reflect my journey in development
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A collection of projects that showcase my skills in full-stack development, design, and problem-solving
           </p>
         </div>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
-                activeFilter === category
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 backdrop-blur-sm border border-gray-200 dark:border-gray-600'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => {
-            const IconComponent = project.icon;
-            return (
-              <div
-                key={project.id}
-                className={`group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border border-gray-200/50 dark:border-gray-700/50 ${
-                  project.featured ? 'md:col-span-2 lg:col-span-1' : ''
+        {/* Category Filter */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex bg-white dark:bg-gray-700 rounded-lg p-1 shadow-sm">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  activeCategory === category
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 }`}
               >
-                {/* Featured badge */}
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <div className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full">
-                      <Star className="w-3 h-3" />
-                      <span>Featured</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Project Header with Gradient */}
-                <div className={`h-32 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <div className="absolute top-4 left-4">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-white/80 text-sm font-medium">{project.category}</span>
-                  </div>
-                  
-                  {/* Floating particles */}
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-white/30 rounded-full animate-ping"></div>
-                  <div className="absolute top-6 right-8 w-1 h-1 bg-white/50 rounded-full animate-pulse delay-300"></div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <div className="flex space-x-2">
-                      <a
-                        href={project.github}
-                        className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 hover:scale-110"
-                        aria-label="GitHub"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
-                      <a
-                        href={project.live}
-                        className="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 hover:scale-110"
-                        aria-label="Live Demo"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Stats */}
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3" />
-                      <span>{project.stats.stars}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <GitFork className="w-3 h-3" />
-                      <span>{project.stats.forks}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-3 h-3" />
-                      <span>{project.stats.views}</span>
-                    </div>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action buttons */}
-                  <div className="flex gap-2">
-                    <a
-                      href={project.live}
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all duration-200 text-center group"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform inline-block">View Project</span>
-                    </a>
-                    <a
-                      href={project.github}
-                      className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium py-2 px-4 rounded-lg transition-all duration-200 text-center"
-                    >
-                      Source Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Enhanced Call to Action */}
-        <div className="mt-20">
-          <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-0 left-0 w-full h-full">
-                <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-10">
-                  <g fill="none" fillRule="evenodd">
-                    <g fill="#ffffff" fillOpacity="0.1">
-                      <circle cx="7" cy="7" r="1" />
-                    </g>
-                  </g>
-                </svg>
+        {/* Projects Grid */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={index}
+              className={`bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
+                project.featured ? "lg:col-span-2" : ""
+              }`}
+            >
+              {/* Project Image */}
+              <div className="relative overflow-hidden h-48 lg:h-64">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
+                    {project.status}
+                  </span>
+                  {project.featured && (
+                    <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400 flex items-center gap-1">
+                      <Star className="w-3 h-3" />
+                      Featured
+                    </span>
+                  )}
+                </div>
+                <div className="absolute top-4 right-4">
+                  <span className="text-xs text-white bg-black/50 px-2 py-1 rounded">{project.category}</span>
+                </div>
+              </div>
+
+              {/* Project Content */}
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {project.date}
+                  </div>
+                </div>
+
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Project Stats */}
+                <div className="grid grid-cols-2 gap-4 mb-6 p-3 bg-gray-50 dark:bg-gray-600 rounded-lg">
+                  {Object.entries(project.stats).map(([key, value], statIndex) => (
+                    <div key={statIndex} className="text-center">
+                      <div className="text-lg font-bold text-gray-900 dark:text-white">{value}</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400 capitalize">{key}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <a
+                    href={project.liveUrl}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 dark:bg-gray-600 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-500 transition-colors duration-200"
+                  >
+                    <Github className="w-4 h-4" />
+                    Source Code
+                  </a>
+                </div>
               </div>
             </div>
-            
-            <div className="relative z-10 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Interested in <span className="text-yellow-300">collaborating</span>?
-              </h3>
-              <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Whether you're here for insights or just exploring, I hope my work adds value to your journey. 
-                <span className="font-semibold"> Let us innovate, experiment and create something amazing together.</span>
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-white text-blue-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
-                >
-                  <span>Let's Work Together</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <a
-                  href="mailto:contact@satyanchal.com"
-                  className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold py-3 px-8 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
-                >
-                  <span>Send Email</span>
-                  <Code className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
+          ))}
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-16 bg-white dark:bg-gray-700 rounded-lg p-8 text-center">
+          <div className="flex items-center justify-center mb-4">
+            <Zap className="w-6 h-6 text-yellow-500 mr-2" />
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">More Coming Soon!</h3>
+          </div>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            I'm constantly working on new projects and experimenting with cutting-edge technologies. 
+            Check back regularly or follow me on GitHub to see what I'm building next!
+          </p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://github.com"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-gray-600 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-500 transition-colors duration-200"
+            >
+              <Github className="w-5 h-5" />
+              View All Projects
+            </a>
           </div>
         </div>
       </div>
