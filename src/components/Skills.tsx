@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Database, Wrench, Zap, Star, TrendingUp } from 'lucide-react';
+import { Code2, Database, Wrench, Zap, Star, TrendingUp, Code } from 'lucide-react';
 
 const Skills: React.FC = () => {
   const skillCategories = [
