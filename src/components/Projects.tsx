@@ -235,7 +235,15 @@ const Projects: React.FC = () => {
           <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+              <div className="absolute top-0 left-0 w-full h-full">
+                <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-10">
+                  <g fill="none" fillRule="evenodd">
+                    <g fill="#ffffff" fillOpacity="0.1">
+                      <circle cx="7" cy="7" r="1" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
             </div>
             
             <div className="relative z-10 text-center">

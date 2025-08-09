@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Coffee } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Coffee, MessageCircle, Heart, Sparkles } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,27 +26,44 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-dark-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-orange-50 dark:from-pink-900/20 dark:via-gray-900 dark:to-orange-900/20"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In <span className="gradient-text">Touch</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 dark:bg-pink-900/30 rounded-full mb-6">
+            <MessageCircle className="w-4 h-4 text-pink-600 dark:text-pink-400" />
+            <span className="text-sm font-medium text-pink-600 dark:text-pink-400">Get In Touch</span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <span className="text-gray-900 dark:text-white">Let's </span>
+            <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Connect</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Let's innovate, experiment and create something amazing together. Welcome to my world 🙂
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Let's <span className="font-semibold text-pink-600 dark:text-pink-400">innovate</span>, 
+            <span className="font-semibold text-purple-600 dark:text-purple-400"> experiment</span> and create something 
+            <span className="font-semibold text-blue-600 dark:text-blue-400"> amazing</span> together. Welcome to my world 
+            <span className="text-2xl">🚀</span>
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Enhanced Contact Info */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                Let's start a conversation
-              </h3>
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+              <div className="flex items-center gap-3 mb-6">
+                <Heart className="w-6 h-6 text-red-500" />
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Let's start a conversation
+                </h3>
+              </div>
+              
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                Whether you're here for insights or just exploring, I hope my work adds value to your journey. 
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                Whether you're here for <span className="font-semibold text-blue-600 dark:text-blue-400">insights</span> or just exploring, I hope my work adds value to your journey. 
+                I'm always open to discussing <span className="font-semibold text-purple-600 dark:text-purple-400">new projects</span>, creative ideas, or opportunities to be part of your visions.
               </p>
             </div>
 
