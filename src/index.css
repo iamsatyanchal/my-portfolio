@@ -2,42 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light dark;
-}
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
 
-.card-hover {
-  @apply transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl;
-}
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
 
-.neon-glow {
-  @apply shadow-lg shadow-blue-500/20 dark:shadow-purple-500/20;
-}
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
 
-.animate-gradient-x {
-  animation: gradient-x 3s ease-in-out infinite;
-  background-size: 200% 200%;
-}
-
-.animate-spin-slow {
-  animation: spin 8s linear infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.6s ease-out;
-}
 
 /* Custom animations */
 @keyframes gradient-x {
@@ -95,44 +71,29 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(243 244 246); /* bg-gray-100 */
-  border-radius: 9999px; /* rounded-full */
-}
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background-color: rgb(17 24 39); /* dark:bg-gray-900 */
-  }
+  @apply bg-gray-100 dark:bg-gray-900 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6); /* from-blue-500 to-purple-600 */
-  border-radius: 9999px; /* rounded-full */
+  @apply bg-gradient-to-b from-blue-500 to-purple-600 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7e22ce); /* from-blue-600 to-purple-700 */
+  @apply from-blue-600 to-purple-700;
 }
 
 /* Custom selection */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.2); /* bg-blue-500/20 */
-  color: rgb(30, 58, 138); /* text-blue-900 */
+  @apply bg-blue-500/20 text-blue-900;
 }
 
 ::-moz-selection {
-  background-color: rgba(59, 130, 246, 0.2);
-  color: rgb(30, 58, 138);
+  @apply bg-blue-500/20 text-blue-900;
 }
 
 /* Smooth focus states */
 *:focus {
-  outline: none; /* outline-none */
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 0 0 4px white; /* ring-2 ring-blue-500/50 ring-offset-2 ring-offset-white */
-}
-@media (prefers-color-scheme: dark) {
-  *:focus {
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 0 0 4px rgb(17, 24, 39); /* dark:ring-offset-gray-900 */
-  }
+  @apply outline-none ring-2 ring-blue-500/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
 }
 
 /* Loading states */
