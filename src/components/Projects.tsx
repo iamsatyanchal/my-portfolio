@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 };
     
