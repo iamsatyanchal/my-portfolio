@@ -33,30 +33,5 @@ const Hero: React.FC = () => {
   );
 };
 
-        <div className="flex flex-wrap gap-2">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="default-transition group inline-flex items-center justify-center gap-2 rounded-md border-2 border-white bg-white px-3 py-1 text-sm font-semibold text-gray-400 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-500 dark:border-gray-900 dark:bg-gray-950 dark:hover:border-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-400"
-          >
-            <Github size={16} strokeWidth={2} />
-            <span>Github</span>
-          </a>
-
-          <a
-            href="https://your-website.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="default-transition group inline-flex items-center justify-center gap-2 rounded-md border-2 border-white bg-white px-3 py-1 text-sm font-semibold text-gray-400 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-500 dark:border-gray-900 dark:bg-gray-950 dark:hover:border-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-400"
-          >
-            <ExternalLink size={16} strokeWidth={2} />
-            <span>Website</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 export default Hero;
+
