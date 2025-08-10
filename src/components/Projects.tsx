@@ -5,7 +5,7 @@ const Projects: React.FC = () => {
   return (
     <>
       <a className="absolute -translate-y-3 inline-flex transform-gpu items-center bg-white dark:bg-gray-950 rounded-full px-4 mx-4 border-2 border-gray-100 dark:border-gray-900 font-bold text-gray-600 dark:text-white text-sm default-transition default-focus" href="/posts">
-        Posts
+        Projects
       </a>
       <ul className="flex flex-col space-y-2 dark:space-y-0 mt-6" role="list">
         {[
