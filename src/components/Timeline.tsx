@@ -1,50 +1,78 @@
 import React from 'react';
+import { Package, Cake } from 'lucide-react';
 
 interface TimelineEvent {
-  date: string;
   title: string;
-  description: string;
-  organization?: string;
+  date: string;
+  icon: JSX.Element;
+  link?: string;
 }
 
 const Timeline: React.FC = () => {
   const events: TimelineEvent[] = [
     {
-      date: "2024 - Present",
-      title: "Full Stack Developer",
-      organization: "Company Name",
-      description: "Working on exciting projects using modern technologies."
+      title: "Released Meteor theme",
+      date: "2024-06-01",
+      icon: <Package className="h-4 w-4" />,
+      link: "https://butterythemes.com/buy/959f821b-3729-4c56-8247-5dc8496171b3"
     },
     {
-      date: "2022 - 2024",
-      title: "Frontend Developer",
-      organization: "Previous Company",
-      description: "Built and maintained various web applications."
+      title: "Happy Birthday!",
+      date: "1997-08-09",
+      icon: <Cake className="h-4 w-4" />
     }
   ];
 
   return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-semibold text-black dark:text-white">Experience</h2>
-      <div className="space-y-8">
+    <>
+      <h3 className="absolute -translate-y-3 inline-flex transform-gpu items-center bg-white dark:bg-gray-950 rounded-full px-4 mx-4 border-2 border-gray-100 dark:border-gray-900 font-bold text-gray-600 dark:text-white text-sm z-30">
+        Events
+      </h3>
+      <ul className="flow-root mt-6" role="list">
         {events.map((event, index) => (
-          <div key={index} className="relative pl-8">
-            <div className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-gray-200 dark:bg-gray-800"></div>
-            {index !== events.length - 1 && (
-              <div className="absolute left-1.5 top-4 bottom-0 w-[1px] bg-gray-200 dark:bg-gray-800"></div>
+          <li key={index} className="group relative pb-3">
+            <span aria-hidden="true" className="absolute left-6 top-4 -ml-px h-full w-0.5 bg-gray-100 dark:bg-gray-900 z-0"></span>
+            {event.link ? (
+              <a className="relative flex space-x-3 default-transition default-focus rounded-md px-2" href={event.link} target="_blank" rel="noopener noreferrer">
+                <div className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-white h-8 w-8 rounded-md flex items-center justify-center ring-2 ring-white dark:ring-gray-950 border-2 border-gray-100 dark:border-gray-900 bg-white dark:bg-gray-950 z-20 default-transition group-hover:border-gray-200 dark:group-hover:border-gray-800">
+                  {event.icon}
+                </div>
+                <div className="text-gray-400 dark:text-gray-300 flex min-w-0 flex-1 justify-between space-x-4 pt-1.5 default-transition group-hover:text-gray-500 dark:group-hover:text-white">
+                  <div>
+                    <p className="font-semibold text-xs line-clamp-1" title={event.title}>
+                      {event.title}
+                    </p>
+                  </div>
+                  <div className="whitespace-nowrap text-right text-sm">
+                    <time className="font-normal" dateTime={event.date}>
+                      {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).split('/').join('-')}
+                    </time>
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <div className="relative flex space-x-3 default-transition default-focus rounded-md px-2">
+                <div className="text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-white h-8 w-8 rounded-md flex items-center justify-center ring-2 ring-white dark:ring-gray-950 border-2 border-gray-100 dark:border-gray-900 bg-white dark:bg-gray-950 z-20 default-transition">
+                  {event.icon}
+                </div>
+                <div className="text-gray-400 dark:text-gray-300 flex min-w-0 flex-1 justify-between space-x-4 pt-1.5 default-transition">
+                  <div>
+                    <p className="font-semibold text-xs line-clamp-1" title={event.title}>
+                      {event.title}
+                    </p>
+                  </div>
+                  <div className="whitespace-nowrap text-right text-sm">
+                    <time className="font-normal" dateTime={event.date}>
+                      {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).split('/').join('-')}
+                    </time>
+                  </div>
+                </div>
+              </div>
             )}
-            <div className="space-y-1">
-              <div className="text-sm text-gray-500 dark:text-gray-400">{event.date}</div>
-              <h3 className="font-medium text-black dark:text-white">{event.title}</h3>
-              {event.organization && (
-                <div className="text-sm text-gray-600 dark:text-gray-400">{event.organization}</div>
-              )}
-              <p className="text-gray-600 dark:text-gray-400">{event.description}</p>
-            </div>
-          </div>
+          </li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </>
   );
 };
 

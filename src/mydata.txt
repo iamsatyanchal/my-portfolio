@@ -1,0 +1,41 @@
+👋 Hey, I'm Satyanchal❗
+I am a 18y/o full stack developer, passionate about building, experimenting, crafting intuitive, high-polish digital experiences. I thrive on pushing boundaries and building tools that challenge the status quo and inspire change. My interests span across:
+
+🚀 Programming: Writing efficient, scalable and clean code.
+🧠 Science and Mathematics: Exploring logical problem-solving and innovative solutions.
+📚 Philosophy: Questioning, learning and growing through different perspectives.
+Here, you will find a mix of my personal thoughts, technical experiments and projects that reflect my journey in development:
+
+🔥 voidexity - A fresh UI experiment using Mixtral LLM.
+🌼 soft quotes - A collection of inspiring quotes to motivate and uplift your day.
+🤖 think. - A fully AI powered Human X AI social media platform that continuously curates the latest news. Demo account - email: testinguser@x.com ; password: 12345
+🔗 apipoint - A hub of diverse APIs developed for modern applications.
+🥤 gitprofile - A sleek and improved way to view GitHub profiles.
+Whether youre here for insights or just exploring, I hope my work adds value to your journey. Let us innovate, experiment and create something amazing together. Welcome to my world..! hehe
+
+
+
+**What I'm building:**
+- **🌼 soft quotes**: A collection of inspiring quotes to motivate and uplift your day.  
+  [soft-quotes.vercel.app](https://soft-quotes.vercel.app)
+
+- **🤖 think**: An AI-powered social media platform that continuously scours for the latest news.  
+  [think-ai-bro.vercel.app](https://think-ai-bro.vercel.app)
+
+- **🔥 pplx**: An experimental project featuring a fresh UI built with Mixtral LLM.  
+  [pplx-done.vercel.app](https://pplx-done.vercel.app)
+
+- **🔗 API Point**: A diverse suite of APIs developed to power modern applications.  
+  [apipoint](https://api-point.vercel.app)
+
+- **🥤 gitprofile**: A sleek, reimagined GitHub profile viewer (work in progress).  
+  [gitprofile.tech/{your_github_username}](https://gitprofile.tech/iamsatyanchal)
+
+- **🚀 Portfolio**: My personal hub to showcase projects and ideas.  
+  [iamsatya.vercel.app](https://iamsatya.vercel.app)
+
+  I believe that radically empathetic technology is the key to a brighter, more just future. Let's build something extraordinary together!
+
+## Get in Touch
+
+For a quick chat, DM me on Twitter: [@iamsatyanchal](https://twitter.com/direct_messages/create/iamsatyanchal)

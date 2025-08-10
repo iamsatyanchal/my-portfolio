@@ -1,73 +1,59 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  githubUrl: string;
-  liveUrl?: string;
-}
+import { Server, Sprout, Package } from 'lucide-react';
 
 const Projects: React.FC = () => {
-  const projects: Project[] = [
-    {
-      title: "Project Name",
-      description: "A brief description of your project. What it does and its key features.",
-      tech: ["React", "TypeScript", "Tailwind"],
-      githubUrl: "https://github.com/yourusername/project",
-      liveUrl: "https://project-demo.com"
-    }
-  ];
-
   return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-semibold text-black dark:text-white">Projects</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, index) => (
-          <div 
-            key={index}
-            className="p-6 rounded-lg border-2 border-white bg-white dark:border-gray-900 dark:bg-gray-950"
-          >
-            <h3 className="text-lg font-semibold text-black dark:text-white">{project.title}</h3>
-            <p className="mt-2 text-gray-600 dark:text-gray-400">{project.description}</p>
-            
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tech.map((tech, techIndex) => (
-                <span 
-                  key={techIndex}
-                  className="px-2 py-1 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-900 rounded"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 flex gap-3">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-              >
-                <Github size={16} />
-                <span>Code</span>
-              </a>
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-                >
-                  <ExternalLink size={16} />
-                  <span>Demo</span>
-                </a>
-              )}
-            </div>
-          </div>
+    <>
+      <a className="absolute -translate-y-3 inline-flex transform-gpu items-center bg-white dark:bg-gray-950 rounded-full px-4 mx-4 border-2 border-gray-100 dark:border-gray-900 font-bold text-gray-600 dark:text-white text-sm default-transition default-focus" href="/posts">
+        Posts
+      </a>
+      <ul className="flex flex-col space-y-2 dark:space-y-0 mt-6" role="list">
+        {[
+          {
+            title: "soft quotes",
+            icon: <Server className="w-4 h-4" />,
+            url: "https://soft-quotes.vercel.app",
+            description: "A collection of inspiring quotes to motivate and uplift your day"
+          },
+          {
+            title: "think",
+            icon: <Sprout className="w-4 h-4" />,
+            url: "https://think-ai-bro.vercel.app",
+            description: "An AI-powered social media platform that continuously scours for the latest news"
+          },
+          {
+            title: "pplx",
+            icon: <Server className="w-4 h-4" />,
+            url: "https://pplx-done.vercel.app",
+            description: "An experimental project featuring a fresh UI built with Mixtral LLM"
+          },
+          {
+            title: "API Point",
+            icon: <Server className="w-4 h-4" />,
+            url: "https://api-point.vercel.app",
+            description: "A diverse suite of APIs developed to power modern applications"
+          }
+        ].map((project, index) => (
+          <li key={index}>
+            <a
+              href={project.url}
+              className="text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-200 bg-white hover:bg-gray-50 dark:bg-gray-950 dark:hover:bg-gray-900 border-2 border-white hover:border-gray-100 dark:border-gray-900 dark:hover:border-gray-800 flex items-center p-2.5 rounded-md default-transition default-focus mt-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex-1 min-w-0 flex items-center space-x-2">
+                <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                  {project.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold truncate" title={project.title}>{project.title}</p>
+                  <p className="text-sm truncate">{project.description}</p>
+                </div>
+              </div>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };
