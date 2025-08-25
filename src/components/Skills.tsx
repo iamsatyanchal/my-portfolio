@@ -40,5 +40,3 @@ const Skills: React.FC = () => {
 };
 
 export default Skills;
-
-export default Skills;
