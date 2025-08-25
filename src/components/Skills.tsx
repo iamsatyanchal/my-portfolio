@@ -1,46 +1,44 @@
 import React from 'react';
 
-interface SkillCategory {
-  name: string;
-  skills: string[];
-}
-
 const Skills: React.FC = () => {
-  const categories: SkillCategory[] = [
-    {
-      name: "Frontend",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Next.js"]
-    },
-    {
-      name: "Backend",
-      skills: ["Node.js", "Express", "PostgreSQL", "MongoDB"]
-    }
-  ];
-
   return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-semibold text-black dark:text-white">Skills</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {categories.map((category, index) => (
-          <div key={index} className="space-y-2">
-            <h3 className="text-lg font-semibold text-black dark:text-white">
-              {category.name}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill, skillIndex) => (
-                <span
-                  key={skillIndex}
-                  className="px-3 py-1 text-sm text-gray-600 dark:text-gray-400 bg-gray-800 rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="space-y-8">
+      {/* Events Section */}
+      <section className="space-y-4">
+        <h3 className="text-lg font-semibold text-black">Events</h3>
+        <div className="space-y-2">
+          <p className="text-sm text-gray-600">Released Portfolio v2.0 25-08-2025</p>
+          <p className="text-sm text-gray-600">Started Learning React 15-01-2024</p>
+          <p className="text-sm text-gray-600">First Web Project 22-06-2023</p>
+        </div>
+        <div className="flex items-center space-x-2 text-sm text-gray-600">
+          <span>🎂</span>
+          <span>Happy Birthday!</span>
+          <span className="text-xs text-gray-400">09-08-1997</span>
+        </div>
+      </section>
+
+      {/* Building Section */}
+      <section className="space-y-4">
+        <h3 className="text-lg font-semibold text-black">Building</h3>
+        <div className="text-sm text-gray-600">
+          <p className="font-semibold">Nothing right now</p>
+          <p>I'm not working on anything right now</p>
+        </div>
+      </section>
+
+      {/* Music Section */}
+      <section className="space-y-4">
+        <h3 className="text-lg font-semibold text-black">Music</h3>
+        <div className="text-sm text-gray-600">
+          <p className="font-semibold">Nothing right now</p>
+          <p>I'm not currently listening to any music</p>
+        </div>
+      </section>
+    </div>
   );
 };
+
+export default Skills;
 
 export default Skills;

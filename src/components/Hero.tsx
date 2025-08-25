@@ -2,31 +2,29 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="sm:flex gap-8 space-y-4 sm:space-y-0 z-10" id="hero">
-      <div className="max-w-3xl space-y-4 font-semibold not-italic leading-9 tracking-tighter grow">
-        <h1 className="text-4xl text-black dark:text-white">
+    <section className="space-y-6" id="hero">
+      <div className="space-y-4">
+        <h1 className="text-4xl font-bold text-black">
           Hey, I'm Satyanchal ─ a developer
         </h1>
-        <h2 className="text-2xl text-gray-400 dark:text-gray-600">
+        <h2 className="text-xl text-gray-600">
           Crafting unique & beautiful experiences,
-          <br className="hidden md:block" />
+          <br />
           one line of code at a time.
         </h2>
       </div>
       
-      <div className="hidden sm:block">
-        <div className="relative inline-flex h-24 w-24 lg:h-32 lg:w-32">
+      <div className="flex justify-center sm:justify-start">
+        <div className="relative">
           <img
             src="https://avatars.githubusercontent.com/u/62104921?v=4"
-            alt="A photo of myself"
+            alt="A photo of myself sat on the green cliffs of Cornwall in the UK with the ocean & sky in the background."
             loading="lazy"
             decoding="async"
-            fetchpriority="auto"
-            width="256"
-            height="256"
-            className="z-10 h-full w-full rounded-full"
+            width="128"
+            height="128"
+            className="w-32 h-32 rounded-full"
           />
-          <div className="absolute h-full w-full rounded-full bg-gray-100 dark:bg-gray-900 motion-safe:animate-pulse"></div>
         </div>
       </div>
     </section>

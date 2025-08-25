@@ -1,37 +1,35 @@
 import React from 'react';
-import { Mail, Github, Twitter } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
     <section className="space-y-4">
-      <h2 className="text-2xl font-semibold text-black dark:text-white">Contact</h2>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 text-sm">
         <a
-          href="mailto:iamsatyachal@gmail.com"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+          href="https://bsky.app/profile/iamsatyanchal"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800"
         >
-          <Mail size={16} />
-          <span>iamsatyanchal@gmail.com</span>
+          Bluesky
         </a>
         <a
           href="https://github.com/iamsatyanchal"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+          className="text-blue-600 hover:text-blue-800"
         >
-          <Github size={16} />
-          <span>GitHub</span>
+          GitHub
         </a>
         <a
           href="https://x.com/iamsatyanchal"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+          className="text-blue-600 hover:text-blue-800"
         >
-          <Twitter size={16} />
-          <span>X / Twitter</span>
+          X
         </a>
       </div>
+      <p className="text-xs text-gray-400">© 2025</p>
     </section>
   );
 };
